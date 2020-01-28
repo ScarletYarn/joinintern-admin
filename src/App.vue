@@ -1,32 +1,23 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <v-app id="inspire">
     <router-view />
-  </div>
+    <v-footer app dark color="blue-grey lighten-3">
+      <v-btn
+        href="http://beian.miit.gov.cn"
+        text
+        x-small
+        class="white--text body-2"
+        >沪ICP备20002317号</v-btn
+      >
+      <v-spacer />
+      <span class="white--text body-2">&copy; Join实习团队2019</span>
+    </v-footer>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator'
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+@Component({})
+export default class App extends Vue {}
+</script>

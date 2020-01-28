@@ -1,11 +1,16 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from 'vue'
+import Vuex from 'vuex'
+import { mutation } from '@/store/mutation'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
+
+const state = {
+  uid: null
+}
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
+  state: state,
+  mutations: mutation,
   actions: {},
   modules: {}
-});
+})
