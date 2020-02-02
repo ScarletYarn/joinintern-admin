@@ -20,7 +20,7 @@ export class LabelService {
   }
 
   @Request({ method: GET, path: '/get-post' })
-  public static getLabels(): Promise<Array<Label>> {
+  public static getPostLabels(): Promise<Array<Label>> {
     // @ts-ignore
     return null
   }

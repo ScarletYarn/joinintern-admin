@@ -1,25 +1,43 @@
-export class PostFilterObject {
-  public minDuration: number
+// class PostFilterObject {
+//   public title: string | undefined
+//
+//   public minDuration: number | undefined
+//
+//   public maxDuration: number | undefined
+//
+//   public majors: Array<number> | undefined
+//
+//   public distancezb: number | undefined
+//
+//   public distancemh: number | undefined
+//
+//   constructor(
+//     title: string | undefined,
+//     minDuration: number | undefined,
+//     maxDuration: number | undefined,
+//     majors: Array<number> | undefined,
+//     distancezb: number | undefined,
+//     distancemh: number | undefined
+//   ) {
+//     this.title = title
+//     this.minDuration = minDuration
+//     this.maxDuration = maxDuration
+//     this.majors = majors
+//     this.distancezb = distancezb
+//     this.distancemh = distancemh
+//   }
+// }
 
-  public maxDuration: number
+export interface PostFilterObject {
+  title?: string
 
-  public majors: Array<number>
+  minDuration?: number
 
-  public distancezb: number
+  maxDuration?: number
 
-  public distancemh: number
+  majors?: number[]
 
-  constructor(
-    minDuration: number,
-    maxDuration: number,
-    majors: Array<number>,
-    distancezb: number,
-    distancemh: number
-  ) {
-    this.minDuration = minDuration
-    this.maxDuration = maxDuration
-    this.majors = majors
-    this.distancezb = distancezb
-    this.distancemh = distancemh
-  }
+  distancezb?: number
+
+  distancemh?: number
 }

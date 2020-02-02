@@ -11,8 +11,26 @@ export class PostService {
     return null
   }
 
+  @Request({ method: POST, path: '/query' })
+  public static query(
+    @RequestParam('id') id: number
+  ): Promise<Post> {
+    // @ts-ignore
+    return null
+  }
+
+  @Request({ method: POST, path: '/delete' })
+  public static delete(
+    @RequestParam('uid') uid: string,
+    @RequestParam('id') id: number
+  ): Promise<boolean> {
+    // @ts-ignore
+    return null
+  }
+
   @Request({ method: POST, path: '/create' })
   public static createPost(
+    @RequestParam('postTitle') postTitle: string,
     @RequestParam('duration') duration: number,
     @RequestParam('location') location: string,
     @RequestParam('distancezb') distancezb: number,
@@ -39,6 +57,7 @@ export class PostService {
   public static updatePost(
     @RequestParam('postId') postId: number,
     @RequestParam('openId') openId: string,
+    @RequestParam('postTitle') postTitle: string,
     @RequestParam('duration') duration: number,
     @RequestParam('location') location: string,
     @RequestParam('distancezb') distancezb: number,
@@ -53,13 +72,15 @@ export class PostService {
   }
 
   @Request({ method: POST, path: '/complete' })
-  public static completePost(): Promise<boolean> {
+  public static completePost(
+    @RequestParam('id') id: number
+  ): Promise<boolean> {
     // @ts-ignore
     return null
   }
 
-  @Request({ method: POST, path: '/click' })
-  public static clickPost(
+  @Request({ method: POST, path: '/hit' })
+  public static hitPost(
     @RequestParam('user_id') user_id: string,
     @RequestParam('postId') postId: number
   ): Promise<void> {

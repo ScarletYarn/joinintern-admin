@@ -2,6 +2,8 @@ export class Post {
 
   public postId: number
 
+  public postTitle: string
+
   public duration: number
 
   public location: string
@@ -22,8 +24,11 @@ export class Post {
 
   public endTime: string
 
+  public postDate: string
+
   constructor(
     postId: number,
+    postTitle: string,
     duration: number,
     location: string,
     distancezb: number,
@@ -33,9 +38,11 @@ export class Post {
     expiration: string,
     authorId: string,
     startTime: string,
-    endTime: string
+    endTime: string,
+    postDate: string
   ) {
     this.postId = postId
+    this.postTitle = postTitle
     this.duration = duration
     this.location = location
     this.distancezb = distancezb
@@ -46,5 +53,6 @@ export class Post {
     this.authorId = authorId
     this.startTime = startTime
     this.endTime = endTime
+    this.postDate = postDate
   }
 }

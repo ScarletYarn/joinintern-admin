@@ -2,37 +2,41 @@ export class Video {
 
   public videoId: number
 
+  public videoTitle: string
+
   public videoDescription: string
 
   public videoPath: string
 
-  public checked: string
+  public validation: string
 
   public posterId: string
 
-  public checkerId: string
+  public validatorId: string
 
   public postDate: string
 
-  public checkDate: string
+  public validateDate: string
 
   constructor(
     videoId: number,
+    videoTitle: string,
     videoDescription: string,
     videoPath: string,
-    checked: string,
+    validation: string,
     posterId: string,
-    checkerId: string,
+    validatorId: string,
     postDate: string,
-    checkDate: string
+    validateDate: string
   ) {
     this.videoId = videoId
+    this.videoTitle = videoTitle
     this.videoDescription = videoDescription
     this.videoPath = videoPath
-    this.checked = checked
+    this.validation = validation
     this.posterId = posterId
-    this.checkerId = checkerId
+    this.validatorId = validatorId
     this.postDate = postDate
-    this.checkDate = checkDate
+    this.validateDate = validateDate
   }
 }

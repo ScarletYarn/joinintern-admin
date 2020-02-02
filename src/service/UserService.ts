@@ -19,6 +19,14 @@ export class UserService {
     return null
   }
 
+  @Request({ method: POST, path: '/find' })
+  public static find(
+    @RequestParam('uid') uid: string
+  ): Promise<MyUser> {
+    // @ts-ignore
+    return null
+  }
+
   @Request({ method: POST, path: '/super/login' })
   public static superLogin(
     @RequestParam('uid') uid: string,
@@ -59,8 +67,8 @@ export class UserService {
     return null
   }
 
-  @Request({ method: POST, path: '/check' })
-  public static checkUser(
+  @Request({ method: POST, path: '/validate' })
+  public static validateUser(
     @RequestParam('id') id: string,
     @RequestParam('op') op: string
   ): Promise<boolean> {

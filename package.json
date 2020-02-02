@@ -50,7 +50,7 @@
       "vuetify"
     ],
     "devServer": {
-      "proxy": "http://47.103.194.103:8080"
+      "proxy": "http://47.103.194.103:8090"
     }
   },
   "babel": {

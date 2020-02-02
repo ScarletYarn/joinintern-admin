@@ -10,7 +10,7 @@ export class MyUser {
 
   public cardPhotoPath: string
 
-  public checked: string
+  public validation: string
 
   public userIdentity: string
 
@@ -26,7 +26,7 @@ export class MyUser {
     level: number,
     major: number,
     cardPhotoPath: string,
-    checked: string,
+    validation: string,
     userIdentity: string,
     nickname: string,
     avatar: string,
@@ -37,7 +37,7 @@ export class MyUser {
     this.level = level
     this.major = major
     this.cardPhotoPath = cardPhotoPath
-    this.checked = checked
+    this.validation = validation
     this.userIdentity = userIdentity
     this.nickname = nickname
     this.avatar = avatar
