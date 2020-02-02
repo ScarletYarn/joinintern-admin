@@ -24,6 +24,13 @@
       </v-list-item>
       <v-list-item>
         <v-list-item-content>
+          <v-list-item-title>
+            用户学号：{{ userInfo.studentId }}
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+      <v-list-item>
+        <v-list-item-content>
           <v-list-item-title> 专业：{{ major }} </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
@@ -114,7 +121,7 @@ import { convertMajor } from '@/utils/majorConvertor'
 export default class UserDetail extends Vue {
   cardPrompt = false
 
-  userInfo: MyUser = new MyUser('', '', 0, 0, '', '', '', '正在获取', '', 0)
+  userInfo: MyUser = new MyUser('', '', 0, 0, '', '', '', '正在获取', '', 0, '')
 
   get gender() {
     if (this.userInfo.gender == 'male') return '男'

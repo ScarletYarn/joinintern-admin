@@ -1,3 +1,5 @@
+import { Label } from '@/models/Label'
+import { Major } from '@/models/Major'
 import { PostFilterObject } from '@/helpers/PostFilterObject'
 import { Post } from '@/models/Post'
 import { BasePath, GET, POST, Request, RequestParam } from '@/utils/Http'
@@ -49,6 +51,40 @@ export class PostService {
   public static filter(
     PostFilterObject: PostFilterObject
   ): Promise<Array<Post>> {
+    // @ts-ignore
+    return null
+  }
+
+  @Request({ method: POST, path: '/majors' })
+  public static getMajors(
+    @RequestParam('id') id: number
+  ): Promise<Array<Major>> {
+    // @ts-ignore
+    return null
+  }
+
+  @Request({ method: POST, path: '/labels' })
+  public static getLabels(
+    @RequestParam('id') id: number
+  ): Promise<Array<Label>> {
+    // @ts-ignore
+    return null
+  }
+
+  @Request({ method: POST, path: '/label/add' })
+  public static addLabel(
+    @RequestParam('labelId') labelId: number,
+    @RequestParam('postId') postId: number
+  ): Promise<boolean> {
+    // @ts-ignore
+    return null
+  }
+
+  @Request({ method: POST, path: '/major/add' })
+  public static addMajor(
+    @RequestParam('postId') postId: number,
+    @RequestParam('majorId') majorId: number
+  ): Promise<boolean> {
     // @ts-ignore
     return null
   }

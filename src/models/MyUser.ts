@@ -20,6 +20,8 @@ export class MyUser {
 
   public enterpriseTypeId: number
 
+  public studentId: string
+
   constructor(
     userId: string,
     gender: string,
@@ -30,7 +32,8 @@ export class MyUser {
     userIdentity: string,
     nickname: string,
     avatar: string,
-    enterpriseTypeId: number
+    enterpriseTypeId: number,
+    studentId: string
   ) {
     this.userId = userId
     this.gender = gender
@@ -42,5 +45,6 @@ export class MyUser {
     this.nickname = nickname
     this.avatar = avatar
     this.enterpriseTypeId = enterpriseTypeId
+    this.studentId = studentId
   }
 }

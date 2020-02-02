@@ -7,9 +7,13 @@
           <v-list-item-title class="headline mb-1">
             <v-tooltip bottom>
               <template v-slot:activator="{ on }">
-                <span style="cursor: pointer;" v-on="on" :class="titleColor">{{ postInfo.postTitle }}</span>
+                <span style="cursor: pointer;" v-on="on" :class="titleColor">{{
+                  postInfo.postTitle
+                }}</span>
               </template>
-              <span>{{ postInfo.completed ? '该实习已经结束' : '该实习尚未结束' }}</span>
+              <span>{{
+                postInfo.completed ? '该实习已经结束' : '该实习尚未结束'
+              }}</span>
             </v-tooltip>
           </v-list-item-title>
           <v-list-item-subtitle>
@@ -78,6 +82,28 @@
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title>
+            所需专业：
+            <v-chip v-for="item of majors" :key="item.majorId">
+              {{ item.majorName }}
+            </v-chip>
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title>
+            <v-chip
+              v-for="item of labels"
+              :key="item.labelId"
+              color="primary"
+              >{{ item.labelContent }}</v-chip
+            >
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title>
             {{ postInfo.postContent }}
           </v-list-item-title>
         </v-list-item-content>
@@ -85,7 +111,12 @@
 
       <v-card-actions>
         <v-spacer />
-        <v-btn text v-if="!postInfo.completed" @click="complete(postInfo.postId)">完成该实习</v-btn>
+        <v-btn
+          text
+          v-if="!postInfo.completed"
+          @click="complete(postInfo.postId)"
+          >完成该实习</v-btn
+        >
         <v-btn text v-else disabled>该实习已完成</v-btn>
       </v-card-actions>
     </v-card>
@@ -100,6 +131,8 @@ import { Component, Vue } from 'vue-property-decorator'
 import { PostService } from '@/service/PostService'
 import { Post } from '@/models/Post'
 import { UserService } from '@/service/UserService'
+import { Label } from '@/models/Label'
+import { Major } from '@/models/Major'
 
 @Component({
   async mounted() {
@@ -109,10 +142,15 @@ import { UserService } from '@/service/UserService'
     this.$data.authorName = (
       await UserService.query(this.$data.postInfo.authorId)
     ).nickname
+    this.$data.labels = await PostService.getLabels(
+      <any>this.$route.params.postId
+    )
+    this.$data.majors = await PostService.getMajors(
+      <any>this.$route.params.postId
+    )
   }
 })
 export default class PostDetail extends Vue {
-
   popup: boolean = false
 
   popupText: string = ''
@@ -140,23 +178,27 @@ export default class PostDetail extends Vue {
     ''
   )
 
+  labels: Label[] = []
+
+  majors: Major[] = []
+
   complete(id: number) {
     if (!window.confirm('确认完成此实习？')) return
-    PostService.completePost(id).then((res: boolean) => {
-      if (res) {
-        this.postInfo.completed = true
-        this.popupText = '修改成功'
-        this.popup = true
-      }
-      else {
+    PostService.completePost(id)
+      .then((res: boolean) => {
+        if (res) {
+          this.postInfo.completed = true
+          this.popupText = '修改成功'
+          this.popup = true
+        } else {
+          this.popupText = '修改失败'
+          this.popup = true
+        }
+      })
+      .catch(() => {
         this.popupText = '修改失败'
         this.popup = true
-      }
-    })
-    .catch(() => {
-      this.popupText = '修改失败'
-      this.popup = true
-    })
+      })
   }
 }
 </script>

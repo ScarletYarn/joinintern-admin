@@ -55,6 +55,7 @@ export class UserService {
   @Request({ method: POST, path: '/register' })
   public static register(
     @RequestParam('code') code: string,
+    @RequestParam('stuId') stuId: string,
     @RequestParam('gender') gender: string,
     @RequestParam('level') level: number,
     @RequestParam('major') major: number,

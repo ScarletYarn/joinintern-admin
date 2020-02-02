@@ -1,24 +1,11 @@
-# joinintern-site
+# Join Intern Management End
 
-## Project setup
-```
-npm install
-```
+The management end for Join Intern.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+You can view all of the accounts, videos, posts of Join Intern and modify them.
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### ToDo:
+- [ ] Student ID
+- [ ] Show majors related with post
+- [ ] Show labels related with video
+- [ ] Show hits of videos and posts
